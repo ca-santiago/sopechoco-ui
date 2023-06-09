@@ -17,7 +17,7 @@ const MainPage = () => {
 
             {/* TOP NAV */}
             <div className="sticky top-0 z-40 flex justify-center">
-                <div className="flex justify-evenly w-full rounded-none md:w-3/5 lg:w-2/5 md:rounded-b-lg text-slate-600 bg-white border-none shadow p-2">
+                <div className="flex justify-evenly w-full rounded-none md:w-3/5 lg:w-3/5 md:rounded-b-lg text-slate-600 border-none bg-mainbg p-2">
                     {/* LOGO */}
                     <div>
                         <div>Logo</div>
@@ -73,6 +73,9 @@ const MainPage = () => {
                                         <p>Ver en el mapa</p>
                                     </div>
                                 </a>
+                                <div>
+                                    <p>Contactanos al número: 934 1152731</p>
+                                </div>
                             </div>
                         </div>
                         {/* TODO: Where to place the Choco SVG */}
