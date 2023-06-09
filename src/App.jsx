@@ -6,7 +6,9 @@ import MainPage from './page/main';
 function App() {
 
   return (
-    <MainPage />
+    <div className="bg-mainbg">
+      <MainPage />
+    </div>
   )
 }
 

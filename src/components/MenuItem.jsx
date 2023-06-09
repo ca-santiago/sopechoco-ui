@@ -13,7 +13,7 @@ const Topin = ({ title, extraPrice }) => {
 
 const MenuItem = ({ title, description, imgUri, topins = [] }) => {
     return (
-        <div className="sm:w-full md:w-auto lg:w-2/4 sm:my-4 p-2 lg:max-w-xl">
+        <div className="sm:w-full md:w-auto lg:w-2/4 p-2 lg:max-w-xl">
             <div className="bg-white p-5 rounded-xl shadow">
                 {/* INFO SECTION */}
                 <div className=' overflow-hidden flex-1 xl:max-w-xl lg:max-w-xl flex flex-col items-center justify-center'>
@@ -25,8 +25,8 @@ const MenuItem = ({ title, description, imgUri, topins = [] }) => {
                 {/* TOPINS SECTION */}
                 <div className='flex-1 m-4'>
                     <p className='text-xl'>{description}</p>
-                    <div className='my-10'>
-                        <p className='text-xl text-gray-800'>Guisos</p>
+                    <div className='mt-10'>
+                        <p className='text-xl'>Guisos</p>
                         <div className='flex flex-wrap xl:content-start lg:content-start'>
                             {topins.map((t, index) => <Topin key={'topin-' + index} {...t} />)}
                         </div>
