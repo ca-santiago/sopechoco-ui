@@ -4,6 +4,8 @@ import { MenuItemsList } from '../data';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importamos los estilos del carrusel
 import { Carousel } from 'react-responsive-carousel';
+
+import { FiPhoneForwarded } from 'react-icons/fi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 
 const images = [
@@ -16,24 +18,27 @@ const MainPage = () => {
         <div className="min-h-screen">
 
             {/* TOP NAV */}
-            <div className="sticky top-0 z-40 flex justify-center">
-                <div className="flex justify-evenly w-full rounded-none md:w-3/5 lg:w-3/5 md:rounded-b-lg text-slate-600 border-none bg-mainbg p-2">
+            <div className="sticky top-0 z-40 flex justify-center text-center shadow">
+                <div className="flex justify-evenly w-full md:w-3/5 rounded-none md:rounded-b-lg text-slate-600 border-none bg-mainbg p-2 text-center">
+
                     {/* LOGO */}
-                    <div>
-                        <div>Logo</div>
+                    <div className="flex items-center">
+                        <p>Icon</p>
                     </div>
+
                     {/* NAV */}
-                    <div className="">
-                        <ul className="flex gap-4">
-                            <li className="">El 1</li>
-                            <li>El 2</li>
-                            <li>El 2</li>
-                        </ul>
-                    </div>
+                    <ul className="flex gap-4 items-center">
+                        <li className=""></li>
+                        <li>El 2</li>
+                        <li>El 2</li>
+                    </ul>
 
                     {/* CTA */}
                     <div>
-                        <div>Icon</div>
+                        <a href='/menu' className="hover:scale-[103%] transition duration-150 flex items-center gap-2 rounded-full p-1 px-3 border-accent border text-accent font-semibold justify-center">
+                            <MdOutlineRestaurantMenu size={16} />
+                            <p>Menú</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -41,7 +46,7 @@ const MainPage = () => {
             {/* CONTENT */}
 
             <div className="h-full">
-                <div className="grid grid-cols-2 px-10">
+                <div className="grid grid-flow-row md:grid-flow-col md:grid-cols-2 px-10 pt-10 md:pt-0">
 
                     {/* FIRST COL */}
                     <div className="w-full flex">
@@ -62,7 +67,7 @@ const MainPage = () => {
                                     ¡Sumérgete en los sabores auténticos de Balancán y experimenta una tradición gastronómica inigualable!
                                 </p>
                             </div>
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-row gap-5">
                                 <a
                                     target='_blank'
                                     href='https://www.google.com/maps/place/El+Sopechoco/@17.8050984,-91.5371666,17.33z/data=!4m14!1m7!3m6!1s0x85f3c28a773183f5:0xfff8874f50895109!2sEl+Sopechoco!8m2!3d17.8053598!4d-91.5371032!16s%2Fg%2F11fy4t3914!3m5!1s0x85f3c28a773183f5:0xfff8874f50895109!8m2!3d17.8053598!4d-91.5371032!16s%2Fg%2F11fy4t3914?entry=ttu'
@@ -73,8 +78,10 @@ const MainPage = () => {
                                         <p>Ver en el mapa</p>
                                     </div>
                                 </a>
-                                <div>
-                                    <p>Contactanos al número: 934 1152731</p>
+                                <div className="flex gap-4 items-center text-">
+                                    <FiPhoneForwarded size={18} className="text-slate-800" />
+                                    <p className="text-slate-700 font-semibold hidden sm:block">123 456 7890</p>
+                                    <a className="text-slate-700 font-semibold block sm:hidden" href="tel:+521234567890">123 456 7890</a>
                                 </div>
                             </div>
                         </div>
@@ -87,10 +94,10 @@ const MainPage = () => {
                     </div>
 
                     {/* SECOND COL */}
-                    <div className="flex m-auto py-10 justify-center items-center w-full">
+                    <div className="flex m-0 md:m-auto py-10 justify-center items-center w-full">
 
                         {/* MENU CARD */}
-                        <div className="p-5 rounded-3xl bg-secondary w-4/5 max-w-lg shadow-2xl shadow-slate-200">
+                        <div className="p-5 rounded-3xl bg-secondary max-w-lg shadow-2xl shadow-slate-200 w-full md:w-4/5">
                             <h2 className="mb-4 text-lg font-semibold text-slate-800 text-center">Prueba de nuestro delicioso menu</h2>
 
                             <Carousel
@@ -103,14 +110,9 @@ const MainPage = () => {
                                 showArrows={false}
                                 className="rounded-xl overflow-hidden"
                             >
-                                {MenuItemsList.map(item => (
-                                    <div className="rounded-xl overflow-hidden">
+                                {MenuItemsList.map((item, index) => (
+                                    <div key={index} className="rounded-xl overflow-hidden">
                                         <img height="100%" width={100} src={item.imgUri} alt={item.title} className="object-center rounded-xl overflow-hidden z-50" />
-                                        {/* <div className="flex w-full text-lg font-semibold text-slate-700 absolute z-50 bottom-0">
-                                            <div className="w-full py-3 text-center bg-gradient-to-t from-gray-900 to-transparent opacity-90 text-white">
-                                                {item.title}
-                                            </div>
-                                        </div> */}
                                         <p className="text-center text-accent font-bold text-xl my-2">{item.title}</p>
                                     </div>
                                 ))}
@@ -118,10 +120,10 @@ const MainPage = () => {
 
                             {/* CTAs */}
                             <div className="w-full h-full mt-1">
-                                <div className="hover:scale-[103%] transition duration-150 flex items-center gap-2 rounded-full p-2 px-4 border-accent border text-accent font-semibold justify-center">
+                                <a href='/menu' className="hover:scale-[103%] transition duration-150 flex items-center gap-2 rounded-full p-2 px-4 border-accent border text-accent font-semibold justify-center">
                                     <MdOutlineRestaurantMenu size={22} />
                                     <p>Ver menu completo</p>
-                                </div>
+                                </a>
                             </div>
 
                         </div>
