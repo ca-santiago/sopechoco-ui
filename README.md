@@ -1,1 +1,3 @@
-# sopechoco-ui
+# sopechoco website
+
+https://sopechoco.com/
